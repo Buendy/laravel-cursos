@@ -11,6 +11,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Storage::deleteDirectory('courses');
+        Storage::deleteDirectory('users');
+
+        Storage::makeDirectory('courses');
+        Storage::makeDirectory('users');
+        $this->call(RoleTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(LevelsTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
         // $this->call(UsersTableSeeder::class);
     }
 }

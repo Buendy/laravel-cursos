@@ -9,12 +9,12 @@ $factory->define(App\User::class, function (Faker $faker) {
     $lastName = $faker->lastName;
     return [
         'name' => $name,
-        'rore_id' => Role::all()->random()->id,
+        'role_id' => Role::all()->random()->id,
         'last_name' => $lastName,
         'slug' => str_slug($name . ' ' . $lastName, '-'),
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
-        'picture' => Image::(storage_path() . 'app/public/users', 200, 200, people, false),
+        'picture' => Image::image(storage_path() . '/app/public/users', 200, 200, 'people', false),
     ];
 });
