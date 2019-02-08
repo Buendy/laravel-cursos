@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Student;
+use App\User;
+use App\UserSocialAccount;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -47,9 +51,44 @@ class LoginController extends Controller
     {
         if(!request()->has('code') || request()->has('denied')){
             session()->flash('message',['danger', __('auth.social_denied')]);
-            return $this->redirectTo('login');
+            return redirect('login');
         }
         $socialUser = Socialite::driver($driver)->user();
-        dd($socialUser);
+
+        $success = true;
+        $email = $socialUser->email;
+        $user = User::whereEmail($email)->first();
+        if(is_null($user)){
+            DB::beginTransaction();
+            try{
+                $user = User::create([
+                   'name' => $socialUser->name ? $socialUser->name : '',
+                   'email' => $email,
+
+                ]);
+                UserSocialAccount::create([
+                   'user_id' => $user->id,
+                    'provider' => $driver,
+                    'provider_uid' => $socialUser->id,
+                ]);
+                Student::create([
+                   'user_id' => $user->id,
+                ]);
+            }catch (\Exception $exception){
+                $success = $exception->getMessage();
+                DB::rollBack();
+            }
+
+        }
+
+        if($success === true){
+            DB::commit();
+            auth()->loginUsingId($user-id);
+            return redirect()->route('home');
+        }
+        session()->flash('message', ['danger', $success]);
+        return redirect()->route('login');
+
+
     }
 }
