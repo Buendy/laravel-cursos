@@ -14,4 +14,10 @@ return [
 
     'failed'   => 'Estas credenciales no coinciden con nuestros registros.',
     'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos.',
+    'socialite' => 'Autenticación mediante redes sociales',
+    'github' => 'GitHub',
+    'facebook' => 'Facebook',
+    'login' => 'Autenticación',
+    'social_denied' => 'Autenticación denegada',
+    'info_message' => 'Mensaje informativo',
 ];

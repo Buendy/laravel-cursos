@@ -15,5 +15,11 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'socialite' => 'Login with socialite',
+    'github' => 'GitHub',
+    'facebook' => 'Facebook',
+    'login' => 'Login',
+    'social_denied' => 'Login Denied',
+    'info_message' => 'Information message',
 
 ];
