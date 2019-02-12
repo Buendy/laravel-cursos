@@ -20,4 +20,5 @@ return [
     'login' => 'Autenticación',
     'social_denied' => 'Autenticación denegada',
     'info_message' => 'Mensaje informativo',
+    'Remember Me' => 'Recuerdame',
 ];
