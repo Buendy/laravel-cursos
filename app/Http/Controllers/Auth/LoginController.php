@@ -6,6 +6,7 @@ use App\User;
 use App\UserSocialAccount;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 use Laravel\Socialite\Facades\Socialite;
 class LoginController extends Controller
 {
@@ -75,6 +76,13 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
         session()->flash('message', ['danger', $success]);
+        return redirect()->route('login');
+    }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        session()->flush();
         return redirect()->route('login');
     }
 }

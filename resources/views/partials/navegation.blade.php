@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-primary navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
             <a href="{{url('/')}}" class="navbar-brand">{{env('APP_NAME')}}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
@@ -11,6 +11,9 @@
 
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    <li>
+                        @include('partials.navigations.'. \App\User::navitagion())
+                    </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="">{{__('menu.language')}}</a>

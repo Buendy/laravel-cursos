@@ -96,5 +96,10 @@ class User extends Authenticatable
         return $this->hasOne(UserSocialAccount::class);
     }
 
+    public static function navitagion()
+    {
+        return auth()->check() ? auth()->user()->role->name : 'guest';
+    }
+
 
 }

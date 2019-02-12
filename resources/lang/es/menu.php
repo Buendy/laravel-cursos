@@ -3,5 +3,11 @@ return [
     'language' => 'Selecciona un idioma',
     'spain' => 'Español',
     'english' => 'Inglés',
+    'login' => 'Iniciar sesión',
+    'register' => 'Registrarse',
+    'admin_teachers' => 'Adminitrar profesores',
+    'admin_students' => 'Administrar estudiantes',
+    'admin_courses' => 'Administrar cursos',
+    'logout' => 'Cerrar sesión',
 ];
 
