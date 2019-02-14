@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * App\Course
@@ -87,4 +88,14 @@ class Course extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function pathAttachment()
+    {
+        return Storage::url('courses/'. $this->picture);
+    }
+    public function getCustomRatingAttribute()
+    {
+        return $this->reviews()->avg('rating');
+    }
 }
+
