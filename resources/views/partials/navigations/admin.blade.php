@@ -1,3 +1,4 @@
+@include('partials.vavitacion.student_links')
 <li>
     <a href="" class="nav-link">{{__('menu.admin_courses')}}</a>
 </li>

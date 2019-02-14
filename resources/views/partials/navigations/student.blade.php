@@ -1,7 +1,2 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: daniel
- * Date: 12/02/19
- * Time: 16:47
- */
+@include('partials.navigations.student_links')
+@include('partials.navigations.loggued')
