@@ -46,6 +46,8 @@ class Course extends Model
     const PENDING = 2;
     const REJECTED = 3;
 
+    protected $withCount = ['reviews', 'students'];
+
     public function category()
     {
         return $this->belongsTo(Category::class)
@@ -87,7 +89,7 @@ class Course extends Model
 
     public function pathAttachment()
     {
-        return Storage::url('courses/' . $this->picture);
+        return '/storage/courses/' . $this->picture;
     }
 
     public function getCustomRatingAttribute()
@@ -98,5 +100,14 @@ class Course extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function relatedCourses()
+    {
+        return Course::with('reviews')
+            ->whereCategoryId($this->category_id)
+            ->where('id', '!=', $this->id)->latest()
+            ->limit(6)
+            ->get();
     }
 }
