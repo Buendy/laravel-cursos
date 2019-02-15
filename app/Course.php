@@ -42,6 +42,7 @@ use Illuminate\Support\Facades\Storage;
 class Course extends Model
 {
     use softDeletes;
+
     const PUBLISHED = 1;
     const PENDING = 2;
     const REJECTED = 3;

@@ -15,6 +15,9 @@
                    <h6>{{__('app.courses.reviews')}}: {{$course->reviews_count}}</h6>
                    @include('partials.courses.rating')
                </div>
+               <div class="col-2">
+                   @include('partials.courses.action_button')
+               </div>
            </div>
         </div>
     </div>
