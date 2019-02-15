@@ -12,6 +12,16 @@ return [
         'publish' => 'Fecha de publicación',
         'updated' => 'Fecha de actualización',
         'students' => 'Estudiantes',
-        'reviews' => 'Criticas'
+        'reviews' => 'Criticas',
+        'subscribe_me' => 'Subscribirme',
+        'inscribe_me' => 'Inscribirme',
+        'inscribe' => 'Inscrito',
+        'author' => 'Soy el autor',
+        'login' => 'Acceder',
+        'goals' => 'Metas',
+        'no_goals' => 'No se han escrito metas para este curso',
+        'requirements' => 'Requisitos para tomar el curso',
+        'no_requirements' => 'No hay ningún requisito para este curso',
+        'description' => '¿Qué vamos a hacer?',
     ],
 ];

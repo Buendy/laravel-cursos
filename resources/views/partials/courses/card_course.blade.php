@@ -8,14 +8,14 @@
         <h4 class="card-title">{{ $course->name }}</h4>
         <hr>
         <div class="row justify-content-center">
-            {{-- Añadir partial para mostrar el rating --}}
+            @include('partials.courses.rating')
         </div>
         <hr>
         <span class="badge badge-danger badge-cat">{{ $course->category->name }}</span>
         <p class="card-text">
             {{ str_limit($course->description, 100) }}
         </p>
-        <a href="#" class="btn btn-course btn-block">
+        <a href="{{route('courses.detail',$course->slug)}}" class="btn btn-course btn-block">
             {{ __('app.home.more_information') }}
         </a>
     </div>

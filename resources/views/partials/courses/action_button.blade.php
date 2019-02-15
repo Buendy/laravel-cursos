@@ -1,7 +1,7 @@
 @auth
     @can('opt_for_course', $course)
         @can('subscribe', \app\Course::class)
-            <a href="#" class="btn btn-subscribe btn-block">
+            <a href="{{route('subscriptions.class')}}" class="btn btn-subscribe btn-block">
                 <i class="fa fa-bolt"></i>{{__('app.courses.subscribe_me')}}
             </a>
         @else

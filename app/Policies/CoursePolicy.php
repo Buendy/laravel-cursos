@@ -13,7 +13,7 @@ class CoursePolicy
 
     public function opt_for_course(User $user, Course $course)
     {
-        return ! $user->teacher() || $user->teacher->id != $course->teacher->id;
+        return ! $user->teacher || $user->teacher->id != $course->teacher->id;
     }
 
     public function subscribe(User $user)

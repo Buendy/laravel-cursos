@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
 use phpDocumentor\Reflection\Types\Parent_;
 
 /**
@@ -47,7 +48,7 @@ use phpDocumentor\Reflection\Types\Parent_;
  */
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Billable;
 
   protected static function boot()
   {

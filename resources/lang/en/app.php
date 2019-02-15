@@ -12,6 +12,16 @@ return [
         'publish' => 'Date publish',
         'updated' => 'date update',
         'students' => 'Estudents',
-        'reviews' => 'Reviews'
+        'reviews' => 'Reviews',
+        'subscribe_me' => 'Subscribe me',
+        'inscribe_me' => 'Inscribe me',
+        'inscribe' => 'Inscribe',
+        'author' => 'Author',
+        'login' => 'Log in',
+        'goals' => 'Goals',
+        'no_goals' => 'There aren\'t goals for this course',
+        'requirements' => 'Requirements for this course',
+        'no_requirements' => 'There aren\'t requirements for this course',
+        'description' => 'What are we going to do?',
     ],
 ];

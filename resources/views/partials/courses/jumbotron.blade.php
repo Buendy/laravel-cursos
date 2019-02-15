@@ -10,7 +10,7 @@
                    <h4>{{__('app.courses.teacher_name')}}:{{$course->teacher->user->name}}</h4>
                    <h5>{{__('app.courses.category_name')}}: {{$course->category->name}}</h5>
                    <h5>{{__('app.courses.publish')}}: {{$course->created_at->format('d/m/Y')}}</h5>
-                   <h5>{{__('app.courses.updated')}}:{{$course->update_at->format('d/m/Y')}}</h5>
+                   <h5>{{__('app.courses.updated')}}:{{$course->updated_at->format('d/m/Y')}}</h5>
                    <h6>{{__('app.courses.students')}}: {{$course->students_count}}</h6>
                    <h6>{{__('app.courses.reviews')}}: {{$course->reviews_count}}</h6>
                    @include('partials.courses.rating')
