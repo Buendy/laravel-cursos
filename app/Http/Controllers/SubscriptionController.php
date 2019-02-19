@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Exception;
 use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
@@ -22,8 +22,31 @@ class SubscriptionController extends Controller
         return view('subscriptions.plans');
     }
 
-    public function processSubscription()
+    public function processSubscription(Request $request)
     {
+        $token = $request->stripeToken;
 
+        try{
+            if(request()->filled('coupon')){
+                request()->user()->newSubscription('main', request('type'))
+                    ->withCoupon(request('coupon'))->create($token);
+            }else{
+                request()->user()->newSubscription('main', request('type'))
+                    ->create($token);
+            }
+            return redirect()->route('subscription.admin')
+                ->with('message',['success', __('app.subscriptions.subscriptions_ok')]);
+
+        }catch (Exception $exception){
+            $error = $exception->getMessage();
+            return back()->with('message', ['danger', $error]);
+        }
+
+
+    }
+
+    public function admin()
+    {
+        return view('subscriptions.admin');
     }
 }
